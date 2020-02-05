@@ -20,16 +20,14 @@ function getColor(){
 
 
 
+
 // Question 2 Solution
 
-
-function joinArray(){
-	myColor = ["Red", "Green", "White", "Black"];
-
-	const getColorString = () => {
-    console.log(myColor.join());
-    console.log(myColor.join());
-    console.log(myColor.join('+'));
+	var getColorString = () => {
+		myColor = ["Red", "Green", "White", "Black"];
+		console.log(myColor.join());
+		console.log(myColor.join());
+		console.log(myColor.join('+'));
 }
 
 
@@ -201,51 +199,65 @@ let employees = [
     }
 ]
 
+var webDev = () => {
+	let newArray = [];
+	for (i = 0; i < employees.length; i++) {
+		if (employees[i].Job == "Web Developer") {
+			newArray.push(employees[i]);
+		}
+	}
+	return console.log(newArray);
+}
+
+
+var webDevNg = () => {
+	let newArray = [];
+	for (i = 0; i < employees.length; i++) {
+		if (employees[i].Job == "Web Developer" && employees[i].Country == "Nigeria") {
+			newArray.push(employees[i]);
+		}
+	}
+	return console.log(newArray);
+}
+
+
+var EmpBelowTwenty = () => {
+	let newArray = [];
+	for (i = 0; i < employees.length; i++) {
+		if (employees[i].age < 20) {
+			newArray.push(employees[i]);
+		}
+	}
+	return console.log(newArray);
+}
+
+
+
+var activeEmp = () => {
+	let newArray = [];
+	for (i = 0; i < employees.length; i++) {
+		if (employees[i].active == true) {
+			newArray.push(employees[i]);
+		}
+	}
+	return console.log(newArray);
+}
+
+
+
+
 function getAll(){
-	var webDev = () => {
-		let newArray = [];
-		for (i = 0; i < employees.length; i++) {
-			if (employees[i].Job == "Web Developer") {
-				newArray.push(employees[i]);
-			}
-		}
-		return console.log(newArray);
-	}
-
-	var webDevNg = () => {
-		let newArray = [];
-		for (i = 0; i < employees.length; i++) {
-			if (employees[i].Job == "Web Developer" && employees[i].Country == "Nigeria") {
-				newArray.push(employees[i]);
-			}
-		}
-		return console.log(newArray);
-	}
-
-	var EmpBelowTwenty = () => {
-		let newArray = [];
-		for (i = 0; i < employees.length; i++) {
-			if (employees[i].age < 20) {
-				newArray.push(employees[i]);
-			}
-		}
-		return console.log(newArray);
-	}
-
-	var activeEmp = () => {
-		let newArray = [];
-		for (i = 0; i < employees.length; i++) {
-			if (employees[i].active == true) {
-				newArray.push(employees[i]);
-			}
-		}
-		return console.log(newArray);
-	}
+       webDev()
+       webDevNg()
+       EmpBelowTwenty()
+       activeEmp()
 
 
-	let highestPaidDevs = employees.filter((e)=> e.Job == "Web Developer").map((num)=> num.salary)
+    let highestPaidDevs = employees.filter((e)=> e.Job == "Web Developer").map((num)=> num.salary)
 	let highestPaid = Math.max.apply(null, highestPaidDevs)
 	let highestPaidDev = employees.filter((a)=> a.Job === "Web Developer" && a.salary === highestPaid)
 	console.log(`${highestPaidDev[0].first_name} earns highest $${highestPaidDev[0].salary}`)
+}
 
-};
+
+
